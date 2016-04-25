@@ -34,9 +34,9 @@ public class jfrAplicacion extends JFrame {
 		getpnlAplicacion().setPreferredSize(new Dimension((int)getSize().getWidth(), (int)getSize().getHeight() - TAMANO_FIJO_HEIGHT_PNLOPCIONES));
 		getpnlAplicacion().setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		
-		//generar puntos aleatorios
+		//generar puntos aleatorios y calcula quickhull
 		getpnlAplicacion().generarPuntos();
-		
+
 		getpnlOpciones().setPreferredSize(new Dimension((int)getSize().getWidth(), TAMANO_FIJO_HEIGHT_PNLOPCIONES));
 		getpnlOpciones().setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		add(getpnlAplicacion(), BorderLayout.CENTER);
