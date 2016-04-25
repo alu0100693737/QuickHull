@@ -1,3 +1,11 @@
+/** Ivan Garcia Campos   alu0100693737@ull.edu.es
+ * 25/04/16
+ * Programacion de aplicaciones interactivas
+ * 1.0v
+ * Clase pnlAplicacion para la representacion de los puntos y el 
+ * polyline con la solucion
+ */
+
 package quickhull;
 
 import java.awt.Color;
@@ -21,12 +29,8 @@ public class pnlAplicacion extends JPanel {
 	
 	//Variable margen. Facilitar poligonos quickhull
 	private final static int MARGEN = 40;
-	
-	
-	
-	
 	int numPuntos;
-	ArrayList<Punto> arrayPuntos;
+	ModeloQuickhull arrayPuntos;
 	
 	public pnlAplicacion(int numPuntos, int tamanox, int tamanoy) {
 		
@@ -35,19 +39,19 @@ public class pnlAplicacion extends JPanel {
 		System.out.println(getSize().getWidth() + " " + getSize().getHeight());
 		setBackground(new Color(RANGORGB, RANGORGB, RANGORGB));
 		setConjuntoPuntos(numPuntos);
-		setArrayPuntos(new ArrayList<Punto>());
+		setArrayPuntos(new ModeloQuickhull());
 	}
 
 	public void paintComponent(Graphics g) { 
 		super.paintComponent(g); 
 		if ((getTamanoXActual() == getSize().getWidth()) && (getTamanoYActual() == getSize().getHeight())) {
-			for (Punto punto : getArrayPuntos()) {
+			for (Punto punto : getArrayPuntos().getPuntosEvaluacion()) {
 				g.fillOval((int)punto.getPunto().getX(), (int)punto.getPunto().getY(), punto.getRadio(), punto.getRadio());
 			}
 		} else {
-			getArrayPuntos().clear();
+			getArrayPuntos().getPuntosEvaluacion().clear();
 			generarPuntos();
-			for (Punto punto : getArrayPuntos()) {
+			for (Punto punto : getArrayPuntos().getPuntosEvaluacion()) {
 				g.fillOval((int)punto.getPunto().getX(), (int)punto.getPunto().getY(), punto.getRadio(), punto.getRadio());
 			}
 		}
@@ -55,9 +59,9 @@ public class pnlAplicacion extends JPanel {
 	
 	public void generarPuntos() {
 		for (int i = 0; i < getConjuntoPuntos(); i++) {
-			getArrayPuntos().add(new Punto(new Point((int)(Math.random() * (getSize().getWidth() - MARGEN) + RADIO), (int)(Math.random() * (getSize().getHeight() - MARGEN) + RADIO)), RADIO * DOS));
-			System.out.println("Valor x: " + getArrayPuntos().get(i).getPunto().getX());
-			System.out.print(" Valor y: " + getArrayPuntos().get(i).getPunto().getY());
+			getArrayPuntos().getPuntosEvaluacion().add(new Punto(new Point((int)(Math.random() * (getSize().getWidth() - MARGEN) + RADIO), (int)(Math.random() * (getSize().getHeight() - MARGEN) + RADIO)), RADIO * DOS));
+			System.out.println("Valor x: " + getArrayPuntos().getPuntosEvaluacion().get(i).getPunto().getX());
+			System.out.print(" Valor y: " + getArrayPuntos().getPuntosEvaluacion().get(i).getPunto().getY());
 		}
 	}
 	
@@ -69,11 +73,11 @@ public class pnlAplicacion extends JPanel {
 		numPuntos = npuntos;
 	}
 	
-	ArrayList<Punto> getArrayPuntos() {
+	ModeloQuickhull getArrayPuntos() {
 		return arrayPuntos;
 	}
 	
-	void setArrayPuntos(ArrayList<Punto> nuevo) {
+	void setArrayPuntos(ModeloQuickhull nuevo) {
 		arrayPuntos = nuevo;
 	}
 	
