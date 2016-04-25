@@ -17,6 +17,7 @@ public class botonContainer {
 	private Boton ejecutar;
 	private Boton pausa;
 	private Boton paso;
+	private Boton color;
 	
 	public botonContainer() {
 		botones = new ArrayList<Boton>();
@@ -24,21 +25,25 @@ public class botonContainer {
 		ejecutar = new Boton("Ejecutar");
 		pausa = new Boton("Pausa");
 		paso = new Boton("Paso");
+		color = new Boton("Color");
 
 		getIniciar().setName("Iniciar");
 		getEjecutar().setName("Ejecutar");
 		getPausa().setName("Pausa");
 		getPaso().setName("Paso");
+		getColor().setName("Color");
 		
 		getIniciar().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		getEjecutar().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		getPausa().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
 		getPaso().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
-		
+		getColor().setFont(new Font("Comic Sans MS", Font.BOLD, 18));
+
 		getArraybtn().add(getIniciar());
 		getArraybtn().add(getEjecutar());
 		getArraybtn().add(getPausa());
 		getArraybtn().add(getPaso());
+		getArraybtn().add(getColor());
 	}
 	
 	public Boton getIniciar() {
@@ -55,6 +60,10 @@ public class botonContainer {
 	
 	public Boton getPaso() {
 		return paso;
+	}
+	
+	public Boton getColor() {
+		return color;
 	}
 
 	public ArrayList<Boton> getArraybtn() {

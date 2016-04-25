@@ -15,12 +15,12 @@ public class jfrAplicacion extends JFrame {
 	private pnlAplicacion aplicacion;
 	private pnlOpciones opciones;
 	
-	public jfrAplicacion() {
+	public jfrAplicacion(int numpuntos) {
 		
 		setLayout(new BorderLayout(5, 5));
 		setTitle("Quickhull");
 		
-		setpnlAplicacion(new pnlAplicacion());
+		setpnlAplicacion(new pnlAplicacion(numpuntos));
 		setpnlOpciones(new pnlOpciones());
 		
 		setSize(TAMANO_VENTANA_DEFECTO_WIDTH, TAMANO_VENTANA_DEFECTO_HEIGHT);

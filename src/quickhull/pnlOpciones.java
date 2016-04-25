@@ -13,7 +13,7 @@ public class pnlOpciones extends JPanel {
 	private botonContainer botones;
 
 	public pnlOpciones() {
-		setLayout(new GridLayout(1, 4, 10, 10));
+		setLayout(new GridLayout(1, 5, 10, 10));
 		setBackground(Color.BLACK);
 		add(new jlbEspaciado(30, 80));
 
