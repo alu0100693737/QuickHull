@@ -1,5 +1,10 @@
 package quickhull;
 
-public class pnlAplicacion {
+import javax.swing.JPanel;
 
+public class pnlAplicacion extends JPanel {
+
+	public pnlAplicacion() {
+		
+	}
 }
