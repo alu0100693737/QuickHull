@@ -26,7 +26,7 @@ public class Punto {
 	}
 	
 	public void drawPunto(Graphics g) {
-		g.fillOval((int)getPunto().getX() - getRadio(), (int)getPunto().getY(), getRadio() * DOS, getRadio() * DOS);
+		g.fillOval((int)getPunto().getX(), (int)getPunto().getY(), getRadio() * DOS, getRadio() * DOS);
 	}
 	
 	public void setPunto(Point valor) {

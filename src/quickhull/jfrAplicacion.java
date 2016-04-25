@@ -20,13 +20,16 @@ public class jfrAplicacion extends JFrame {
 		setLayout(new BorderLayout(5, 5));
 		setTitle("Quickhull");
 		
-		setpnlAplicacion(new pnlAplicacion(numpuntos));
+		setpnlAplicacion(new pnlAplicacion(numpuntos, TAMANO_VENTANA_DEFECTO_WIDTH, TAMANO_VENTANA_DEFECTO_HEIGHT - TAMANO_FIJO_HEIGHT_PNLOPCIONES));
 		setpnlOpciones(new pnlOpciones());
 		
 		setSize(TAMANO_VENTANA_DEFECTO_WIDTH, TAMANO_VENTANA_DEFECTO_HEIGHT);
 		getpnlAplicacion().setPreferredSize(new Dimension((int)getSize().getWidth(), (int)getSize().getHeight() - TAMANO_FIJO_HEIGHT_PNLOPCIONES));
 		getpnlAplicacion().setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
+		
+		//generar puntos aleatorios
+		getpnlAplicacion().generarPuntos();
+		
 		getpnlOpciones().setPreferredSize(new Dimension((int)getSize().getWidth(), TAMANO_FIJO_HEIGHT_PNLOPCIONES));
 		getpnlOpciones().setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		add(getpnlAplicacion(), BorderLayout.CENTER);
