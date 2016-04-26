@@ -41,11 +41,11 @@ public class pnlOpciones extends JPanel {
 		
 		getCambiarNum().addKeyListener(new controllerQuickhull.enviarCantidadPuntos());
 		
-		getArrayButones().getIniciar().addActionListener(new controllerQuickhull.nuevoQuickhull());/*getArrayButones().getEjecutar().addActionListener(new controllerQuickhull.ejecutar());
-		*/getArrayButones().getEjecutar().addActionListener(new controllerQuickhull.ejecutar());
-		/*getArrayButones().getPausa().addActionListener(new controllerQuickhull.pausar());
+		getArrayButones().getIniciar().addActionListener(new controllerQuickhull.nuevoQuickhull());
+	  getArrayButones().getEjecutar().addActionListener(new controllerQuickhull.ejecutar());
+		getArrayButones().getPausa().addActionListener(new controllerQuickhull.pausa());
 		getArrayButones().getPaso().addActionListener(new controllerQuickhull.pasoapaso());
-		 */
+		 
 		getArrayButones().getColor().addActionListener(new controllerQuickhull.cambioColor());
 	}
 
