@@ -8,9 +8,11 @@
 
 package quickhull;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Polygon;
 
@@ -21,6 +23,8 @@ public class pnlAplicacion extends JPanel {
 	private static final int RANGORGB = 255; // blanco con (0,	0,	0)
 	private static final int RADIO = 5;
 	private static final int DOS = 2;
+	
+	private Color colorActual;
 	
 	//variables para dimension
 	private double tamanoXActual;
@@ -39,6 +43,8 @@ public class pnlAplicacion extends JPanel {
 		setBackground(new Color(RANGORGB, RANGORGB, RANGORGB));
 		setConjuntoPuntos(numPuntos);
 		setArrayPuntos(new ModeloQuickhull());
+		//color por defecto
+		setColorActual(Color.RED);
 	}
 
 	public void paint(Graphics g) {
@@ -48,13 +54,16 @@ public class pnlAplicacion extends JPanel {
 			}
 			//getArrayPuntos().solucionar();
 			Polygon poligono1 = new Polygon();
-			g.setColor(Color.RED);
+			g.setColor(getColorActual());
 			System.out.println("Cantidad solu" + getArrayPuntos().getPuntosSolucion().size());
 			for (int i = 0; i < getArrayPuntos().getPuntosSolucion().size(); i++) {
 				//g.fillOval((int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getX(), (int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getX(), 20, 20);
-				poligono1.addPoint((int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getX(), (int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getY());
+				poligono1.addPoint((int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getX() + getArrayPuntos().getPuntosSolucion().get(i).getRadio()/2, (int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getY() +  getArrayPuntos().getPuntosSolucion().get(i).getRadio()/2);
 			}
-		g.drawPolygon(poligono1);//(poligono1.xpoints, poligono1.ypoints, poligono1.npoints);
+			Graphics2D g2 = (Graphics2D) g;
+      g2.setStroke(new BasicStroke(2));
+      //g2.draw(new Line2D.Float(30, 20, 80, 90));
+		g2.drawPolygon(poligono1);//(poligono1.xpoints, poligono1.ypoints, poligono1.npoints);
 
 			System.out.println("HOLA" + getArrayPuntos().getPuntosSolucion().size());
 			//g.drawPolygon(poligono1);//(poligono1.xpoints, poligono1.ypoints, poligono1.npoints);
@@ -93,7 +102,6 @@ public class pnlAplicacion extends JPanel {
 			getArrayPuntos().getPuntosEvaluacion().add(new Punto(new Point((int)(Math.random() * (getSize().getWidth() - MARGEN) + RADIO), (int)(Math.random() * (getSize().getHeight() - MARGEN) + RADIO)), RADIO * DOS));
 		}
 		getArrayPuntos().solucionar();
-		System.out.println("ANA");
 	}
 	
 	public int getConjuntoPuntos() {
@@ -104,27 +112,35 @@ public class pnlAplicacion extends JPanel {
 		numPuntos = npuntos;
 	}
 	
-	ModeloQuickhull getArrayPuntos() {
+	public ModeloQuickhull getArrayPuntos() {
 		return arrayPuntos;
 	}
 	
-	void setArrayPuntos(ModeloQuickhull nuevo) {
+	public void setArrayPuntos(ModeloQuickhull nuevo) {
 		arrayPuntos = nuevo;
 	}
 	
-	double getTamanoXActual() {
+	public double getTamanoXActual() {
 		return tamanoXActual;
 	}
 	
-	void setTamanoXActual(double valor) {
+	public void setTamanoXActual(double valor) {
 		tamanoXActual = valor;
 	}
 	
-	double getTamanoYActual() {
+	public double getTamanoYActual() {
 		return tamanoYActual;
 	}
 	
-	void setTamanoYActual(double valor) {
+	public void setTamanoYActual(double valor) {
 		tamanoYActual = valor;
+	}
+	
+	public Color getColorActual() {
+		return colorActual;
+	}
+	
+	public void setColorActual(Color nuevo) {
+		colorActual = nuevo;
 	}
 }

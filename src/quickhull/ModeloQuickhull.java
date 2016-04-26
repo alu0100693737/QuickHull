@@ -105,8 +105,8 @@ public class ModeloQuickhull {
     Punto B = getPuntosEvaluacion().get(maxPoint);
     getPuntosSolucion().add(A);
     getPuntosSolucion().add(B);
-    getPuntosEvaluacion().remove(A);
-    getPuntosEvaluacion().remove(B);
+    //getPuntosEvaluacion().remove(A);
+    //getPuntosEvaluacion().remove(B);
 
     ArrayList<Punto> leftSet = new ArrayList<Punto>();
     ArrayList<Punto> rightSet = new ArrayList<Punto>();

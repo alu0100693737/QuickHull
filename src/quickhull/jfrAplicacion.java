@@ -17,7 +17,7 @@ import javax.swing.JFrame;
 public class jfrAplicacion extends JFrame {
 	private final int TAMANO_VENTANA_DEFECTO_WIDTH = 800;
 	private final int TAMANO_VENTANA_DEFECTO_HEIGHT = 600; 			//tamanyo de la ventana por defecto
-	private final int TAMANO_FIJO_HEIGHT_PNLOPCIONES = 80;
+	private final int TAMANO_FIJO_HEIGHT_PNLOPCIONES = 40;
 	
 	private pnlAplicacion aplicacion;
 	private pnlOpciones opciones;
