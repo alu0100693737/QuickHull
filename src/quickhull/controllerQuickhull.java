@@ -55,6 +55,7 @@ public static class enviarCantidadPuntos implements KeyListener {
 		// TODO Auto-generated method stub
 		if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
 			System.out.println("tusop");
+			getVentana().getpnlAplicacion().setNumPuntos(Integer.parseInt(getVentana().getpnlOpciones().getCambiarNum().getText()));
 			getVentana().getpnlAplicacion().generarPuntos();
 			getVentana().repaint();
 		} else {
@@ -63,7 +64,6 @@ public static class enviarCantidadPuntos implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-		System.out.println("RARO");
 		// TODO Auto-generated method stub
 	}
 

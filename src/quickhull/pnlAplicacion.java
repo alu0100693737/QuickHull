@@ -41,7 +41,7 @@ public class pnlAplicacion extends JPanel {
 		setPreferredSize(new Dimension(tamanox, tamanoy));
 		System.out.println(getSize().getWidth() + " " + getSize().getHeight());
 		setBackground(new Color(RANGORGB, RANGORGB, RANGORGB));
-		setConjuntoPuntos(numPuntos);
+		setNumPuntos(numPuntos);
 		setArrayPuntos(new ModeloQuickhull());
 		//color por defecto
 		setColorActual(Color.RED);
@@ -99,17 +99,18 @@ public class pnlAplicacion extends JPanel {
 	}
 	
 	public void generarPuntos() {
-		for (int i = 0; i < getConjuntoPuntos(); i++) {
+		getArrayPuntos().getPuntosEvaluacion().clear();
+		for (int i = 0; i < getNumPuntos(); i++) {
 			getArrayPuntos().getPuntosEvaluacion().add(new Punto(new Point((int)(Math.random() * (getSize().getWidth() - MARGEN) + RADIO), (int)(Math.random() * (getSize().getHeight() - MARGEN) + RADIO)), RADIO * DOS));
 		}
 		getArrayPuntos().solucionar();
 	}
 	
-	public int getConjuntoPuntos() {
+	public int getNumPuntos() {
 		return numPuntos;
 	}
 	
-	public void setConjuntoPuntos(int npuntos) {
+	public void setNumPuntos(int npuntos) {
 		numPuntos = npuntos;
 	}
 	
