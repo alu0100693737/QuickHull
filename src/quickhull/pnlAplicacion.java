@@ -53,6 +53,7 @@ public class pnlAplicacion extends JPanel {
 				g.fillOval((int)punto.getPunto().getX(), (int)punto.getPunto().getY(), punto.getRadio(), punto.getRadio());
 			}
 			//getArrayPuntos().solucionar();
+			//dibujarPoligono(g);
 			Polygon poligono1 = new Polygon();
 			g.setColor(getColorActual());
 			System.out.println("Cantidad solu" + getArrayPuntos().getPuntosSolucion().size());

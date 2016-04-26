@@ -39,7 +39,7 @@ public class pnlOpciones extends JPanel {
 			add(boton);
 		}
 		
-		getArrayButones().getIniciar().addKeyListener(new controllerQuickhull.enviarCantidadPuntos());
+		getCambiarNum().addKeyListener(new controllerQuickhull.enviarCantidadPuntos());
 		/*getArrayButones().getEjecutar().addActionListener(new controllerQuickhull.ejecutar());
 		getArrayButones().getPausa().addActionListener(new controllerQuickhull.pausar());
 		getArrayButones().getPaso().addActionListener(new controllerQuickhull.pasoapaso());
