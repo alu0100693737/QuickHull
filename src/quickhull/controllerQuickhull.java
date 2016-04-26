@@ -48,6 +48,18 @@ public class controllerQuickhull {
 			
 		}	
 	}
+	public static class nuevoQuickhull implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			getVentana().getpnlAplicacion().generarPuntos();
+			
+		}
+	}
+	
+	public static class ejecutar implements ActionListener {
+		public void actionPerformed(ActionEvent arg0) {
+			getVentana().repaint();
+		}
+	}
 
 public static class enviarCantidadPuntos implements KeyListener {
 	@Override

@@ -41,8 +41,8 @@ public class botonContainer {
 
 		getArraybtn().add(getIniciar());
 		getArraybtn().add(getEjecutar());
-		getArraybtn().add(getPausa());
 		getArraybtn().add(getPaso());
+		getArraybtn().add(getPausa());
 		getArraybtn().add(getColor());
 	}
 	
