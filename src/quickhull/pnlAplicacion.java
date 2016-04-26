@@ -45,7 +45,7 @@ public class pnlAplicacion extends JPanel {
 		setNumIteracionesbntPaso(0);
 		setEsEjecutar(true);
 		//color por defecto
-		setColorActual(Color.RED);
+		setColorActual(Color.BLACK);
 	}
 
 	public void paint(Graphics g) {
@@ -67,14 +67,12 @@ public class pnlAplicacion extends JPanel {
 				for (int i = 0; i < getNumIteracionesbntPaso(); i++) {
 					poligono1.addPoint((int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getX() + getArrayPuntos().getPuntosSolucion().get(i).getRadio()/2, (int)getArrayPuntos().getPuntosSolucion().get(i).getPunto().getY() +  getArrayPuntos().getPuntosSolucion().get(i).getRadio()/2);
 				}
-			
 				setNumIteracionesbntPaso(getNumIteracionesbntPaso() + 1);
 				Graphics2D g2 = (Graphics2D) g;
 				g2.setStroke(new BasicStroke(2));
 				g2.drawPolygon(poligono1);
 			} else {}
-			//(poligono1.xpoints, poligono1.ypoints, poligono1.npoints);//(poligono1.xpoints, poligono1.ypoints, poligono1.npoints);
-		}
+			}
 	}
 
 	public void paintComponent(Graphics g) { 

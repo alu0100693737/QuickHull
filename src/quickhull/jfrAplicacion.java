@@ -12,9 +12,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
+import javax.swing.JApplet;
 import javax.swing.JFrame;
 
-public class jfrAplicacion extends JFrame {
+public class jfrAplicacion extends JApplet {
 	private final int TAMANO_VENTANA_DEFECTO_WIDTH = 900;
 	private final int TAMANO_VENTANA_DEFECTO_HEIGHT = 600; 			//tamanyo de la ventana por defecto
 	private final int TAMANO_FIJO_HEIGHT_PNLOPCIONES = 40;
@@ -24,8 +25,8 @@ public class jfrAplicacion extends JFrame {
 	
 	public jfrAplicacion(int numpuntos) {
 		
-		setLayout(new BorderLayout(5, 5));
-		setTitle("Quickhull");
+		//setLayout(new BorderLayout(5, 5));
+		//setTitle("Quickhull");
 		
 		setpnlAplicacion(new pnlAplicacion(numpuntos, TAMANO_VENTANA_DEFECTO_WIDTH, TAMANO_VENTANA_DEFECTO_HEIGHT - TAMANO_FIJO_HEIGHT_PNLOPCIONES));
 		setpnlOpciones(new pnlOpciones());
@@ -41,7 +42,7 @@ public class jfrAplicacion extends JFrame {
 		getpnlOpciones().setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		add(getpnlAplicacion(), BorderLayout.CENTER);
 		add(getpnlOpciones(), BorderLayout.SOUTH);
-		pack();
+		//pack();
 		setVisible(true);
 	}
 	

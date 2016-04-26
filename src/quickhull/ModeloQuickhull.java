@@ -16,7 +16,7 @@ public class ModeloQuickhull {
 		setPuntosSolucion(new ArrayList<Punto>());
 	}
 	
-	public int distance(Punto A, Punto B, Punto C) {
+	public int distancia(Punto A, Punto B, Punto C) {
 	    int ABx = (int)(B.getPunto().getX() - A.getPunto().getX());
 	    int ABy = (int)(B.getPunto().getY() - A.getPunto().getY());
 	    int num = (int)(ABx * (A.getPunto().getY() - C.getPunto().getY()) - ABy * (A.getPunto().getX() - C.getPunto().getX()));
@@ -27,34 +27,34 @@ public class ModeloQuickhull {
 
 	public void hullSet(Punto A, Punto B, ArrayList<Punto> set,
 	        ArrayList<Punto> hull) {
-	    int insertPosition = hull.indexOf(B);
+	    int insertarPosicion = hull.indexOf(B);
 	    if (set.size() == 0)
 	        return;
 	    if (set.size() == 1) {
 	        Punto p = set.get(0);
 	        set.remove(p);
-	        hull.add(insertPosition, p);
+	        hull.add(insertarPosicion, p);
 	        return;
 	    }
 	    int dist = Integer.MIN_VALUE;
-	    int furthestPoint = -1;
+	    int puntoMasLejano = -1;
 	    for (int i = 0; i < set.size(); i++) {
 	        Punto p = set.get(i);
-	        int distance = distance(A, B, p);
-	        if (distance > dist) {
-	            dist = distance;
-	            furthestPoint = i;
+	        int distancia = distancia(A, B, p);
+	        if (distancia > dist) {
+	            dist = distancia;
+	            puntoMasLejano = i;
 	        }
 	    }
-	    Punto P = set.get(furthestPoint);
-	    set.remove(furthestPoint);
-	    hull.add(insertPosition, P);
+	    Punto P = set.get(puntoMasLejano);
+	    set.remove(puntoMasLejano);
+	    hull.add(insertarPosicion, P);
 
-	    // Determine who's to the left of AP
+	    // Determinar punto a la izquierda
 	    ArrayList<Punto> leftSetAP = new ArrayList<Punto>();
 	    for (int i = 0; i < set.size(); i++) {
 	        Punto M = set.get(i);
-	        if (pointLocation(A, P, M) == 1) {
+	        if (LocalizacionPunto(A, P, M) == 1) {
 	            leftSetAP.add(M);
 	        }
 	    }
@@ -63,7 +63,7 @@ public class ModeloQuickhull {
 	    ArrayList<Punto> leftSetPB = new ArrayList<Punto>();
 	    for (int i = 0; i < set.size(); i++) {
 	        Punto M = set.get(i);
-	        if (pointLocation(P, B, M) == 1)
+	        if (LocalizacionPunto(P, B, M) == 1)
 	        {
 	            leftSetPB.add(M);
 	        }
@@ -72,7 +72,7 @@ public class ModeloQuickhull {
 	    hullSet(P, B, leftSetPB, hull);
 	}
 
-	public int pointLocation(Punto A, Punto B, Punto P) {
+	public int LocalizacionPunto(Punto A, Punto B, Punto P) {
 	    int cp1 = (int)((B.getPunto().getX() - A.getPunto().getX()) * (P.getPunto().getY() - A.getPunto().getY()) - (B.getPunto().getY() - A.getPunto().getY()) * (P.getPunto().getX() - A.getPunto().getX()));
 	    if (cp1 > 0)
 	        return 1;
@@ -114,9 +114,9 @@ public class ModeloQuickhull {
     for (int i = 0; i < getPuntosEvaluacion().size(); i++)
     {
         Punto p = getPuntosEvaluacion().get(i);
-        if (pointLocation(A, B, p) == -1)
+        if (LocalizacionPunto(A, B, p) == -1)
             leftSet.add(p);
-        else if (pointLocation(A, B, p) == 1)
+        else if (LocalizacionPunto(A, B, p) == 1)
             rightSet.add(p);
     }
     hullSet(A, B, rightSet, getPuntosSolucion());
