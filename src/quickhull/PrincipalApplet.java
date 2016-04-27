@@ -10,7 +10,7 @@ public class PrincipalApplet {
 	    JFrame frame = new JFrame("Quickhull Applet");
 
 	    // Create an instance of the applet
-	    controllerQuickhull applet = new controllerQuickhull(args[0]);
+	    controllerQuickhull applet = new controllerQuickhull(args[0], args[1]);
 	    
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    // Add the applet instance to the frame

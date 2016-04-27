@@ -19,9 +19,9 @@ public class controllerQuickhull {
 	private static jfrAplicacion ventana;
 	private static Color colorNuevo;
 	
-	public controllerQuickhull(String arg) {
-		ventana = new jfrAplicacion(Integer.parseInt(arg));
-		tempo = new Timer(1000, new pasoapaso());
+	public controllerQuickhull(String numpuntos, String velocidad) {
+		ventana = new jfrAplicacion(Integer.parseInt(numpuntos));
+		tempo = new Timer(Integer.parseInt(velocidad), new pasoapaso());
 	}
 
 	public static jfrAplicacion getVentana() {
