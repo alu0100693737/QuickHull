@@ -50,7 +50,7 @@ public class ModeloQuickhull {
 	    set.remove(puntoMasLejano);
 	    hull.add(insertarPosicion, P);
 
-	    // Determinar punto a la izquierda
+	    // Determinar punto a la izquierda de AP
 	    ArrayList<Punto> leftSetAP = new ArrayList<Punto>();
 	    for (int i = 0; i < set.size(); i++) {
 	        Punto M = set.get(i);
@@ -59,7 +59,7 @@ public class ModeloQuickhull {
 	        }
 	    }
 
-	    // Determine who's to the left of PB
+	    // Determinar punto a la izquierda de PB
 	    ArrayList<Punto> leftSetPB = new ArrayList<Punto>();
 	    for (int i = 0; i < set.size(); i++) {
 	        Punto M = set.get(i);
@@ -121,11 +121,6 @@ public class ModeloQuickhull {
     }
     hullSet(A, B, rightSet, getPuntosSolucion());
     hullSet(B, A, leftSet, getPuntosSolucion());
-    for (int i = 0; i < getPuntosSolucion().size(); i++) {
-    	System.err.println(getPuntosSolucion().get(i).getPunto().getX() + " " + getPuntosSolucion().get(i).getPunto().getY());
-			
-		}
-    System.out.println("ESEEE " + getPuntosSolucion());
     return getPuntosSolucion();
 }
 	
